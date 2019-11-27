@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 // November 26, 2019
+=======
+>>>>>>> 3851348aa9416ff228497258374d9ce939138c9c
 package chapter5;
 import java.util.Scanner;
 import java.util.Random;
