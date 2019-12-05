@@ -1,49 +1,73 @@
 package chapter7;
-import java.util.Scanner;
 import java.io.*;
+import java.util.Scanner;
 
 public class PopulationData {
+
 	public static void main(String[] args) throws IOException{
+		final int START_YEAR = 1950;
+		final int END_YEAR = 1990;
+		final int SIZE = END_YEAR - START_YEAR + 1;
+		int[] populations = new int[SIZE];
+		double average = 0.0;
+		int largestYear;
+		int smallestYear;
 		
-		int[] yearsPopulation = new int[41];
-		double averageIncrease = 0.0;
-		int lowestIncrease = 20000;
-		int highestIncrease = -20000;
-		int lowestIndexStart = -1;
-		int lowestIndexEnd = -1;
-		int highestIndexStart = -1;
-		int highestIndexEnd = -1;
+		loadData(populations);
+		average = getAverage(populations);
+		largestYear = getLargestIncrease(populations) + START_YEAR;
+		smallestYear = getSmallestIncrease(populations) + START_YEAR;
 		
+		System.out.printf("Average yearly population increase: %,.2f\n", average);
+		System.out.printf("Largest increase occured in %d\n", largestYear);
+		System.out.printf("Smallest increase occured in %d\n", smallestYear);
+		
+	}
+	
+	public static void loadData(int[] pop) throws IOException {
 		File inputFile = new File("USPopulation.txt");
 		Scanner input = new Scanner(inputFile);
 		
-		for (int i = 0; i < yearsPopulation.length; i++) {
-			yearsPopulation[i] = input.nextInt();
+		for (int i = 0; i < pop.length; i++) {
+			pop[i] = input.nextInt();
 		}
 		
-		for (int i = 0, j = 1; j < yearsPopulation.length; i++, j++) {
-			lowestIncrease = yearsPopulation[0] + yearsPopulation[1];
-			highestIncrease = yearsPopulation[0] + yearsPopulation[1];
-			averageIncrease += (yearsPopulation[i] + yearsPopulation[j]);
-			if (yearsPopulation[i] + yearsPopulation[j] < lowestIncrease) {
-				lowestIncrease = yearsPopulation[i] + yearsPopulation[j];
-				lowestIndexStart = i;
-				lowestIndexEnd = j;
-			}
-			if (yearsPopulation[i] + yearsPopulation[j] > highestIncrease) {
-				highestIncrease = yearsPopulation[i] + yearsPopulation[j];
-				highestIndexStart = i;
-				highestIndexEnd = j;
-			}
+		input.close();
+	}
+	
+	public static double getAverage(int[] pop) {
+		double total = 0.0;
+		
+		for (int i = 0, j = 1; j < pop.length; i++, j++) {
+			total += pop[j] - pop[i];
 		}
 		
-			
-		averageIncrease /= (double)yearsPopulation.length;
-		System.out.printf("Average increase in population from 1950 to 1990: %,.2f\n", averageIncrease);
-		System.out.printf("Greatest increase in population from 1950 to 1990: %,d\n", highestIncrease);
-		System.out.printf("Lowest increase in population from 1950 to 1990: %,d\n", lowestIncrease);
-
+		return (total / (double)pop.length);
+	}
+	
+	public static int getLargestIncrease(int[] pop) {
+		int largestIncrease = pop[1] - pop[0];
+		int index = 0;
 		
+		for (int i = 0, j = 1; j < pop.length; i++, j++) {
+			if ((pop[j] - pop[i]) > largestIncrease) {
+				largestIncrease = pop[j] - pop[i];
+				index = j;
+			}
+		}
+		return index;
+	}
+	
+	public static int getSmallestIncrease(int[] pop) {
+		int smallestIncrease = pop[1] - pop[0];
+		int index = 0;
 		
+		for (int i = 0, j = 1; j < pop.length; i++, j++) {
+			if ((pop[j] - pop[i]) < smallestIncrease) {
+				smallestIncrease = pop[j] - pop[i];
+				index = j;
+			}
+		}
+		return index;
 	}
 }
