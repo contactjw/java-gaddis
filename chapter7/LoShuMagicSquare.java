@@ -1,7 +1,6 @@
 package chapter7;
 
 public class LoShuMagicSquare {
-
 	public static void main(String[] args) {
 		int[][] array1 = {{4, 9, 2},
 						  {3, 5, 7},
