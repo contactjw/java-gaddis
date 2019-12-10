@@ -30,6 +30,7 @@ public class GeometryDemo {
 	}
 	
 	public static void validateChoice(int c) {
+		@SuppressWarnings("resource")
 		Scanner keyboard = new Scanner(System.in);
 		
 		if (c == 1) {
