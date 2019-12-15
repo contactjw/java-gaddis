@@ -1,8 +1,8 @@
 package chapter9;
 
 public class VowelsAndConsonants {
-	private static int vowels;
-	private static int consonants;
+	private int vowels;
+	private int consonants;
 	
 	public VowelsAndConsonants(String str) {
 		String lower = str.toLowerCase();
@@ -94,11 +94,11 @@ public class VowelsAndConsonants {
 		}
 	}
 	
-	public static int getVowels() {
+	public int getVowels() {
 		return vowels;
 	}
 	
-	public static int getConsonants() {
+	public int getConsonants() {
 		return consonants;
 	}
 
