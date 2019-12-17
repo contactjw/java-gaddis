@@ -24,6 +24,9 @@ public class StringOperations {
 		
 		for (int i = 0; i < chars.length; i++) {
 			for (int j = 0; j < chars.length; j++) {
+				if (chars[j] == ' ') {
+					continue;
+				}
 				if (chars[j] == chars[i]) {
 					frequencies[i]++;
 				}
