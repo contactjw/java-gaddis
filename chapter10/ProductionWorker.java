@@ -60,10 +60,12 @@ public class ProductionWorker extends Employee {
 			shiftType = "Day";
 		else if (shift == 2)
 			shiftType = "Night";
+		
+		String pay = String.format("\nHourly Pay: $%.2f", hourlyPay);
 		String info = 
 				(super.toString() +
 				"\nShift: " + shiftType +
-				"\nHourly Pay: $" + hourlyPay);
+				pay);
 		return info;
 	}
 }
