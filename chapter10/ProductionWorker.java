@@ -53,4 +53,17 @@ public class ProductionWorker extends Employee {
 	public double getHourlyPay() {
 		return hourlyPay;
 	}
+	
+	public String toString() {
+		String shiftType = "";
+		if (shift == 1)
+			shiftType = "Day";
+		else if (shift == 2)
+			shiftType = "Night";
+		String info = 
+				(super.toString() +
+				"\nShift: " + shiftType +
+				"\nHourly Pay: $" + hourlyPay);
+		return info;
+	}
 }

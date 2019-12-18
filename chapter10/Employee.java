@@ -76,4 +76,12 @@ public class Employee {
 	public String getHireDate() {
 		return hireDate;
 	}
+	
+	public String toString() {
+		String info = 
+				("Employee Name: " + employeeName +
+				"\nEmployee Number: " + employeeNumber +
+				"\nHire Date: " + hireDate);
+		return info;
+	}
 }
