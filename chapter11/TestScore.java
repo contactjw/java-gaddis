@@ -5,11 +5,11 @@ public class TestScore {
 	private double[] scoresArr;
 	
 	
-	public TestScore(double[] scores) {
+	public TestScore(double[] scores) throws InvalidTestScore{
 		scoresArr = scores;
 		for (int i = 0; i < scoresArr.length; i++) {
 			if (scoresArr[i] > 100 || scoresArr[i] < 0)
-				throw new IllegalArgumentException("Invalid test score.");
+				throw new InvalidTestScore(i, scoresArr[i]);
 		}
 	}
 	

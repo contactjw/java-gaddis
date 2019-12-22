@@ -11,7 +11,7 @@ public class TestScoreDemo {
 			average = newScores.getAverage();
 			System.out.println(average);
 		}
-		catch (IllegalArgumentException e) {
+		catch (InvalidTestScore e) {
 			System.out.println(e);
 		}
 		
