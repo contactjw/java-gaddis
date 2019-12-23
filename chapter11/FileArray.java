@@ -6,7 +6,7 @@ public class FileArray {
 		
 		try {
 			
-			int[] intArray = {5, 4, 3, 2, 1};
+			int[] intArray = {5, 4, 3, 2, 1, 6, 7, 8};
 			int[] emptyArr = new int[intArray.length];
 			
 			String file = "binaryExample.dat";
