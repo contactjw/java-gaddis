@@ -6,11 +6,9 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
 import java.util.Random;
 
 public class HeadsOrTails extends Application {
@@ -36,6 +34,7 @@ public class HeadsOrTails extends Application {
 		buttonBox.setAlignment(Pos.CENTER);
 
 		VBox layout = new VBox(10, imageBox, buttonBox);
+		layout.setPadding(new Insets(10));
 		
 		// Add the EventHandler.
 		flipCoin.setOnAction(event -> {
