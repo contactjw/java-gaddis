@@ -24,14 +24,8 @@ public class TicTacToe extends Application {
 	public void start(Stage primaryStage) {
 		
 		Image x = new Image("file:X.png");
-		ImageView xView = new ImageView(x);
-		xView.setFitWidth(50);
-		xView.setPreserveRatio(true);
 		
 		Image o = new Image("file:O.png");
-		ImageView oView = new ImageView(o);
-		oView.setFitWidth(50);
-		oView.setPreserveRatio(true);
 		
 		Label winnerLabel = new Label();
 		HBox winnerBox = new HBox(10, winnerLabel);
@@ -117,7 +111,7 @@ public class TicTacToe extends Application {
 			else if (yWins)
 				winnerLabel.setText("O Wins!");
 			else
-				winnerLabel.setText("Scratch!");
+				winnerLabel.setText("Draw!");
 			
 		});
 		
